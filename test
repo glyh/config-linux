@@ -1,0 +1,7 @@
+#!/usr/bin/env bb
+(->> (slurp "./static/mappings.edn")
+     (edn/read-string))
+(let [mappings (slurp "./static/mappings.edn")]
+  (pmap (fn [x] (let [file dest]
+                  ) mappings))
+  )
