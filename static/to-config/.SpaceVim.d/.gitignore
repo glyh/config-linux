@@ -1,5 +1,2 @@
-# Cache for clj-kondo
-.cache/
 # VIM: netrw.vim: Network oriented reading, writing, browsing (eg: ftp scp) 
-.netrwhist/
-
+.netrwhist

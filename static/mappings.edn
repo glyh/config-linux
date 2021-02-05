@@ -1,4 +1,4 @@
 [{:dest "~/"
   :source "to-home"}
- {:dest "~/.config/alacritty/"
-  :source "alacritty"}]
+ {:dest "~/.config/"
+  :source "to-config"}]
