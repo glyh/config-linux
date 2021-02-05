@@ -29,7 +29,7 @@
   (let [potential-errors (->> (slurp "./static/mappings.edn")
               (edn/read-string)
               (pmap (fn [x] 
-                      (copy-statics (str "./static/" (:source x) "/.") (:dest x))))
+                      (copy-statics (str "./static/" (:source x) "/.") (expand-home (:dest x)))))
               (flatten))]
     (if (empty? potential-errors) 
       "Successfully copied all static files"
