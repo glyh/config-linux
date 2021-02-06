@@ -1,6 +1,6 @@
 cd ~
 
-pacman -S git base-devel
+pacman -S git base-devel vim networkmanager # Use pacstrap instead
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -16,11 +16,11 @@ yay -S xorg xorg-xinit xmonad xmonad-contrib
 # python environment
 # patches
 yay -S \
-    sudo zsh alacritty ttf-fira-code nvim v2ray aria2 \
-    proxychains debtap chezmoi man\
+    zsh alacritty ttf-fira-code nvim v2ray \
+    aria2 proxychains debtap chezmoi man ranger \
     
 \
-    ranger google-chrome \
+    nm-connection-editor google-chrome \
     qv2ray redshift fcitx fcitx-googlepinyin \
 \
     gdb clang \

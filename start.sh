@@ -1,6 +1,11 @@
 cd ~
 
-pacman -S git base-devel
+pacstrap /mnt base linux linux-firmware
+
+pacstrap /mnt git base-devel vim networkmanager # Use pacstrap instead
+
+pacman -S grub efibootmgr amd-ucode
+
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -16,16 +21,16 @@ yay -S xorg xorg-xinit xmonad xmonad-contrib
 # python environment
 # patches
 yay -S \
-    sudo zsh alacritty ttf-fira-code nvim v2ray aria2 \
-    proxychains debtap hugo chezmoi man\
+    zsh alacritty ttf-fira-code nvim v2ray \
+    aria2 proxychains debtap hugo chezmoi man ranger \
     
 \
-    ranger google-chrome qutebrowser calibre libreoffice-fresh \
+    nm-connection-editor google-chrome qutebrowser calibre libreoffice-fresh \
     qv2ray redshift vlc juk qemu samba fcitx fcitx-googlepinyin \
 \
-    base-devel gdb clang \
+    gdb clang \
 \
-    leiningen joker-bin clj-kondo \
+    leiningen babashka-bin joker-bin clj-kondo \
 \
     nodejs yarn \
 \
