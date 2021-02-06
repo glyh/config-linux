@@ -1,17 +1,12 @@
+#!/usr/bin/env bash
+
+# Can't use yay sine yay depends on xorg
+pacman -S xorg xorg-xinit xmonad xmonad-contrib
+
 cd ~
-
-pacstrap /mnt base linux linux-firmware
-
-pacstrap /mnt git base-devel vi vim networkmanager # Use pacstrap instead
-
-pacman -S grub efibootmgr amd-ucode
-
-
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-
-yay -S xorg xorg-xinit xmonad xmonad-contrib
 
 # console applications, 
 # desktop applications, 
@@ -21,10 +16,10 @@ yay -S xorg xorg-xinit xmonad xmonad-contrib
 # python environment
 # patches
 yay -S \
-    zsh alacritty ttf-fira-code nvim v2ray \
-    aria2 proxychains debtap hugo chezmoi man ranger \
+    zsh alacritty ttf-fira-code neovim v2ray \
+    aria2 proxychains debtap hugo chezmoi man ranger openssh\
 \
-    nm-connection-editor google-chrome qutebrowser calibre libreoffice-fresh \
+    nm-connection-editor timeshift google-chrome qutebrowser calibre libreoffice-fresh \
     qv2ray redshift vlc juk qemu samba fcitx fcitx-googlepinyin \
 \
     gdb clang \
