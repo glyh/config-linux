@@ -2,7 +2,7 @@ cd ~
 
 pacstrap /mnt base linux linux-firmware
 
-pacstrap /mnt git base-devel vim networkmanager # Use pacstrap instead
+pacstrap /mnt git base-devel vi vim networkmanager # Use pacstrap instead
 
 pacman -S grub efibootmgr amd-ucode
 
@@ -23,7 +23,6 @@ yay -S xorg xorg-xinit xmonad xmonad-contrib
 yay -S \
     zsh alacritty ttf-fira-code nvim v2ray \
     aria2 proxychains debtap hugo chezmoi man ranger \
-    
 \
     nm-connection-editor google-chrome qutebrowser calibre libreoffice-fresh \
     qv2ray redshift vlc juk qemu samba fcitx fcitx-googlepinyin \
