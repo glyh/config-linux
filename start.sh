@@ -44,6 +44,6 @@ pip install \
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # dot-files
-chezmoi init git@github.com:glyh/dotfiles.git
+chezmoi init https://github.com/glyh/dotfiles.git
 chezmoi apply
 chezmoi update
