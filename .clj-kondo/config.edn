@@ -1,4 +1,0 @@
-{:linters {:unsorted-required-namespaces {:level :warning}
-           :refer {:level :warning}
-           :single-key-in {:level :warning}
-           :shadowed-var {:level :warnnig}}}
