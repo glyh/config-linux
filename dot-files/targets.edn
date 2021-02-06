@@ -1,0 +1,4 @@
+[{:dir "alacritty" :target "~"}
+ {:dir "byobu" :target "~/"}
+ {:dir "SpaceVim" :target "~/"}
+ {:dir "zsh" :target "~/"}]
