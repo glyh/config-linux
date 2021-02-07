@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Can't use yay sine yay depends on xorg
-pacman -S xorg xorg-xinit xmonad xmonad-contrib
+# pacmans -S xmonad xmonad-contrib xmobar xterm nm-applet volumeicon trayergg0 rofi picom nitrogen
 
 cd ~
 git clone https://aur.archlinux.org/yay.git
@@ -15,16 +14,19 @@ makepkg -si
 # node.js environment,
 # python environment
 # patches
+
+yay -S qtile 
+
 yay -S \
-    zsh alacritty ttf-fira-code neovim v2ray \
+    fish alacritty ttf-fira-code neovim v2ray \
     aria2 proxychains debtap hugo chezmoi man ranger openssh\
 \
-    nm-connection-editor timeshift google-chrome qutebrowser calibre libreoffice-fresh \
+    network-manager-applet timeshift brave qutebrowser calibre libreoffice-fresh \
     qv2ray redshift vlc juk qemu samba fcitx fcitx-googlepinyin \
 \
     gdb clang \
 \
-    leiningen babashka-bin joker-bin clj-kondo \
+    leiningen joker-bin clj-kondo \
 \
     nodejs yarn \
 \
@@ -40,10 +42,12 @@ yarn global add \
 pip install \
   pylint yapf
 
-# oh-my-zsh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # dot-files
 chezmoi init https://github.com/glyh/dotfiles.git
 chezmoi apply
 chezmoi update
+
+# omf framework
+curl -L https://get.oh-my.fish > install
+fish install --config=~/.config/omf
