@@ -3,9 +3,6 @@
 # pacmans -S xmonad xmonad-contrib xmobar xterm nm-applet volumeicon trayergg0 rofi picom nitrogen
 
 cd ~
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
 
 # console applications, 
 # desktop applications, 
@@ -15,10 +12,9 @@ makepkg -si
 # python environment
 # patches
 
-yay -S qtile 
 
 yay -S \
-    fish alacritty ttf-fira-code neovim v2ray \
+    fish alacritty nerd-fonts-fira-mono neovim v2ray \
     aria2 proxychains debtap hugo chezmoi man ranger openssh\
 \
     network-manager-applet timeshift brave qutebrowser calibre libreoffice-fresh \
@@ -30,9 +26,9 @@ yay -S \
 \
     nodejs yarn \
 \
-    python python-pip
+    python python-pip \
 \
-    pulseaudio-bluetooth
+    pulseaudio-bluetooth \
 
 
 # markdown format for nvim. 
