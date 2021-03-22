@@ -47,10 +47,14 @@ swapon /dev/(swap_partion)
   pacstrap /mnt base linux linux-firmware
 
 ## Install some softwares so you can easily install something else after reboot
-  pacstrap /mnt git base-devel vi vim neovim networkmanager # Use pacstrap instead
+  pacstrap /mnt git base-devel vi vim neovim-nightly-bin  networkmanager # Use pacstrap instead
+# I install neovim nightly bin for the new LSP feature, when it becomes stable, I'll remove it
 
 ## Install xorg. xsel manage clipboard for neovim
-  pacstrap /mnt xorg xorg-xinit xsel
+  #pacstrap /mnt xorg xorg-xinit xsel
+# Or, alternatively, install wayland.
+  pacstrap /mnt wayland wlr-randr wl-clipboard-rs wev
+
 
 ## Install GRUB
 pacstrap /mnt grub efibootmgr (amd-ucode)
@@ -93,8 +97,9 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 # see: `man nmcli` and `man nmcli-examples`
 
 ## Install Window Manager and Display Manager, Screen Locker
-  pacman -S sddm awesome-luajit
-  systemctl enable sddm
+  #pacman -S sddm awesome-luajit
+  #systemctl enable sddm
+  pacman -S river
 
 ## Install alacritty instead of xterm
   pacman -S alacritty
@@ -127,17 +132,17 @@ passwd (username)
 ## su to common user.
   su (username) # we don't need root privilage any more.
 
-## Install yay
+## Install paru
   cd ~
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
   makepkg -si
 
 ## Install sound
-  yay -S pulseaudio pulseaudio-bluetooth ncpamixer pavolume
+  paru -S pulseaudio pulseaudio-bluetooth ncpamixer pulsemixer
 
 ## Install bluetooth
-  yay -S bluez bluez-utils
+  paru -S bluez bluez-utils
   lsmod | grep btusb
 # If no "btusb" displayed in lsmod, load it.
   modprobe btusb
@@ -146,7 +151,7 @@ passwd (username)
 ## System tools:
 
 ## Install shell, manuals and ssh
-  yay -S fish man-pages man-db openssh
+  paru -S fish man-pages man-db openssh
 # omf framework
   curl -L https://raw.fastgit.org/oh-my-fish/oh-my-fish/master/bin/install >> setup-omf.fish
   export OMF_REPO_URI=https://hub.fastgit.org/oh-my-fish/oh-my-fish
@@ -156,13 +161,13 @@ passwd (username)
 sudo usermod -s /bin/fish (username)
 
 ## Install mount tool, file explorer, extract tool
-  yay -S udiskie ranger pcmanfm atool
+  paru -S udiskie ranger pcmanfm atool
 
 ## Install backup softwares
-  yay -S timeshift
+  paru -S timeshift
 
 ## Install proxy softwares
-  yay -S v2ray proxychains
+  paru -S v2ray proxychains
 # Notice: v2ray core executable path is : /usr/bin/v2ray,
 # while v2ray asset dir is : v2ray/usr/share/v2ray
 # how to replace proxy:
@@ -175,26 +180,26 @@ sudo usermod -s /bin/fish (username)
 # done.
 
 ## Install IME
-  yay -S fcitx fcitx-sogoupinyin
+  paru -S fcitx fcitx-sogoupinyin
 
 ## Install frontends
-  yay -S network-manager-applet blueman
+  paru -S network-manager-applet blueman
 # Qv2ray should be install from hub.fastgit.org, since github is really slow.
 
 ## Install working softwares
-  yay -S calibre libreoffice-fresh
+  paru -S calibre libreoffice-fresh
 
 ## Install KVM
-  yay -S qemu samba
+  paru -S qemu samba
 
 ## Install multimedia
-  yay -S feh cmus vlc
+  paru -S feh cmus vlc
 
 ## Install other tools for awesome
-  yay -S betterlockscreen unclutter rofi
+  paru -S betterlockscreen unclutter rofi
 
 ## Install other tools
-  yay -S redshift chezmoi aria2 debtap hugo cbatticon
+  paru -S redshift chezmoi aria2 debtap hugo cbatticon brightnessctl
 
 ## Install ariaNg, aria.conf for aria
 # from https://github.com/mayswind/AriaNg/releases (all in one)
@@ -206,14 +211,20 @@ sudo usermod -s /bin/fish (username)
 
 ## Install development softwares
 
-  yay -S gdb clang
-  yay -S leiningen clj-kondo
+  paru -S gdb clang
+
+  paru -S leiningen clj-kondo
   cd config-linux
   bash ./scripts/clojure-lsp.sh
-  yay -S nodejs yarn
-  yay -S python python-pip
-  yay -S choosenim
+
+  paru -S nodejs yarn
+
+  paru -S python python-pip
+
+  paru -S choosenim
   choosenim stable
+
+  paru -S luajit-openresty
 # Set PATH may be needed for yarn and pip.
 
 ## Install themes
@@ -226,13 +237,13 @@ chezmoi apply
 chezmoi update
 
 # Install through proxy(They are huge):
-proxychains yay -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono
+proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono
 
 ## Install SpaceVim
 
 # markdown format for nvim.
-yarn global add  remark, remark-cli, remark-stringify, remark-frontmatter, wcwidth
-pip install pylint yapf
+# yarn global add  remark, remark-cli, remark-stringify, remark-frontmatter, wcwidth
+# pip install pylint yapf
 
 ## Recover dot files again to overwrite.
 chezmoi update
@@ -241,5 +252,10 @@ chezmoi update
 omf update
 
 ## Install wacom support and handwriting softwares
-yay -S input-wacom-dkms xf86-input-wacom libwacom
-yay -S xournalpp
+paru -S input-wacom-dkms xf86-input-wacom libwacom
+
+## Install other tools
+paru -S xournalpp flameshot baidunetdisk-electron evince
+paru -S jdk8-openjdk
+archlinux-java set java-8-opennjdk
+paru -S texlive-core
