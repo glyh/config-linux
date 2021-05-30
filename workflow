@@ -51,7 +51,7 @@ swapon /dev/(swap_partion)
 # I install neovim nightly bin for the new LSP feature, when it becomes stable, I'll remove it
 
 ## Install xorg. xsel manage clipboard for neovim
-  #pacstrap /mnt xorg xorg-xinit xsel
+  #pacstrap /mnt xorg xorg-xinit xsel xcalib(AUR)
 # Or, alternatively, install wayland.
   pacstrap /mnt wayland wlr-randr wl-clipboard-rs wev
 
@@ -187,7 +187,7 @@ sudo usermod -s /bin/fish (username)
 # Qv2ray should be install from hub.fastgit.org, since github is really slow.
 
 ## Install working softwares
-  paru -S calibre libreoffice-fresh
+  paru -S calibre wps-office
 
 ## Install KVM
   paru -S qemu samba
@@ -196,7 +196,7 @@ sudo usermod -s /bin/fish (username)
   paru -S feh cmus vlc
 
 ## Install other tools for awesome
-  paru -S betterlockscreen unclutter rofi
+  paru -S betterlockscreen-git unclutter rofi
 
 ## Install other tools
   paru -S redshift chezmoi aria2 debtap hugo cbatticon brightnessctl
@@ -217,12 +217,15 @@ sudo usermod -s /bin/fish (username)
   cd config-linux
   bash ./scripts/clojure-lsp.sh
 
-  paru -S nodejs yarn
+  paru -S nodejs npm
+  sudo npm install -g tldr
 
   paru -S python python-pip
 
-  paru -S choosenim
-  choosenim stable
+  paru -S ghc-static haskell-language-server stack
+
+  #paru -S choosenim
+  #choosenim stable
 
   paru -S luajit-openresty
 # Set PATH may be needed for yarn and pip.
@@ -237,7 +240,7 @@ chezmoi apply
 chezmoi update
 
 # Install through proxy(They are huge):
-proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono
+proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono ttf-ms-fonts
 
 ## Install SpaceVim
 
