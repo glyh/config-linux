@@ -179,6 +179,9 @@ sudo usermod -s /bin/fish (username)
 # install proxyomega for brave on chrome store.
 # done.
 
+## Let paru host qv2ray
+  paru -S qv2ray-dev-git qv2ray-plugin-ssr-dev-git
+
 ## Install IME
   paru -S fcitx fcitx-sogoupinyin
 
