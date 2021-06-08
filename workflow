@@ -161,7 +161,7 @@ passwd (username)
 sudo usermod -s /bin/fish (username)
 
 ## Install mount tool, file explorer, extract tool
-  paru -S udiskie ranger pcmanfm atool unzip
+  paru -S udiskie ranger pcmanfm atool unzip ntfs-3g
 
 ## Install backup softwares
   paru -S timeshift
@@ -201,7 +201,7 @@ sudo usermod -s /bin/fish (username)
   paru -S feh cmus vlc
 
 ## Install other tools for awesome
-  paru -S betterlockscreen-git unclutter rofi
+  paru -S betterlockscreen-git unclutter rofi-wayland-git
 
 ## Install other tools
   paru -S redshift chezmoi aria2 debtap hugo cbatticon light
