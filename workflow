@@ -47,13 +47,13 @@ swapon /dev/(swap_partion)
   pacstrap /mnt base linux linux-firmware
 
 ## Install some softwares so you can easily install something else after reboot
-  pacstrap /mnt git base-devel vi vim neovim-nightly-bin  networkmanager # Use pacstrap instead
-# I install neovim nightly bin for the new LSP feature, when it becomes stable, I'll remove it
+  pacstrap /mnt git man base-devel vi vim networkmanager # Use pacstrap instead
 
 ## Install xorg. xsel manage clipboard for neovim
   #pacstrap /mnt xorg xorg-xinit xsel xcalib(AUR)
 # Or, alternatively, install wayland.
-  pacstrap /mnt wayland wlr-randr wl-clipboard-rs wev
+  pacstrap /mnt wayland
+  #paru -S wlr-randr wl-clipboard-rs wev
 
 
 ## Install GRUB
@@ -102,7 +102,7 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
   pacman -S river
 
 ## Install alacritty instead of xterm
-  pacman -S alacritty
+  pacman -S alacritty fish
 
 ## Exit and reboot to our fresh Arch Linux
   exit
@@ -161,7 +161,7 @@ passwd (username)
 sudo usermod -s /bin/fish (username)
 
 ## Install mount tool, file explorer, extract tool
-  paru -S udiskie ranger pcmanfm atool
+  paru -S udiskie ranger pcmanfm atool unzip
 
 ## Install backup softwares
   paru -S timeshift
@@ -176,6 +176,8 @@ sudo usermod -s /bin/fish (username)
 # install qv2ray(from hub.fastgit.org)
 # proxychains to install qv2ray maually.
 # see brave man pages to set ssytem proxy for brave.
+# for example: brave --proxy-server="socks://127.0.0.1:7890"
+# "brave --force-device-scale-factor=1.8 " to scale
 # install proxyomega for brave on chrome store.
 # done.
 
@@ -202,7 +204,7 @@ sudo usermod -s /bin/fish (username)
   paru -S betterlockscreen-git unclutter rofi
 
 ## Install other tools
-  paru -S redshift chezmoi aria2 debtap hugo cbatticon brightnessctl
+  paru -S redshift chezmoi aria2 debtap hugo cbatticon light
 
 ## Install ariaNg, aria.conf for aria
 # from https://github.com/mayswind/AriaNg/releases (all in one)
@@ -214,27 +216,38 @@ sudo usermod -s /bin/fish (username)
 
 ## Install development softwares
 
-  paru -S gdb clang
+  #paru -S gdb clang
 
-  paru -S leiningen clj-kondo
-  cd config-linux
-  bash ./scripts/clojure-lsp.sh
+  #paru -S leiningen clj-kondo
+  #cd config-linux
+  #bash ./scripts/clojure-lsp.sh
 
-  paru -S nodejs npm
-  sudo npm install -g tldr
+  #paru -S nodejs npm
+  #sudo npm install -g tldr
 
   paru -S python python-pip
+  pip install --user --upgrade pynvim
 
-  paru -S ghc-static haskell-language-server stack
+  paru -S nodejs yarn
+  yarn config set prefix ~/.yarn
+  yarn global add neovim tldr
+
+  #paru -S ghc-static haskell-language-server stack
 
   #paru -S choosenim
   #choosenim stable
-
-  paru -S luajit-openresty
 # Set PATH may be needed for yarn and pip.
 
+#  paru -S luajit-openresty
+
+# install neovim
+paru -S neovim-nightly-bin
+#install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 ## Install themes
-  git clone --recursive https://github.com/lcpz/awesome-copycats.git
+  git clone --recursive https://hub.fastgit.org/lcpz/awesome-copycats.git
   mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 
 ## Recover dot files
@@ -262,6 +275,6 @@ paru -S input-wacom-dkms xf86-input-wacom libwacom
 
 ## Install other tools
 paru -S xournalpp flameshot baidunetdisk-electron evince
-paru -S jdk8-openjdk
-archlinux-java set java-8-opennjdk
-paru -S texlive-core
+#paru -S jdk8-openjdk
+#archlinux-java set java-8-opennjdk
+#paru -S texlive-core
