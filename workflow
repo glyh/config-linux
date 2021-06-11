@@ -97,9 +97,9 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 # see: `man nmcli` and `man nmcli-examples`
 
 ## Install Window Manager and Display Manager, Screen Locker
-  #pacman -S sddm awesome-luajit
-  #systemctl enable sddm
-  pacman -S river
+  pacman -S sddm #awesome-luajit
+  systemctl enable sddm
+  pacman -S sway foot
 
 ## Install alacritty instead of xterm
   pacman -S alacritty fish
@@ -139,7 +139,7 @@ passwd (username)
   makepkg -si
 
 ## Install sound
-  paru -S pulseaudio pulseaudio-bluetooth ncpamixer pulsemixer
+  paru -S pulseaudio pulseaudio-bluetooth ncpamixer pulsemixer pulseaudio-alsa
 
 ## Install bluetooth
   paru -S bluez bluez-utils
@@ -188,7 +188,7 @@ sudo usermod -s /bin/fish (username)
   paru -S fcitx fcitx-sogoupinyin
 
 ## Install frontends
-  paru -S network-manager-applet blueman
+  paru -S blueman pavucontrol
 # Qv2ray should be install from hub.fastgit.org, since github is really slow.
 
 ## Install working softwares
@@ -278,3 +278,5 @@ paru -S xournalpp flameshot baidunetdisk-electron evince
 #paru -S jdk8-openjdk
 #archlinux-java set java-8-opennjdk
 #paru -S texlive-core
+
+paru -S ruby ruby-fusuma wtype
