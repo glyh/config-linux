@@ -218,7 +218,7 @@ sudo usermod -s /bin/fish (username)
 
   #paru -S gdb clang
 
-  #paru -S leiningen clj-kondo
+  paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
   #cd config-linux
   #bash ./scripts/clojure-lsp.sh
 
@@ -236,9 +236,9 @@ sudo usermod -s /bin/fish (username)
 
   #paru -S choosenim
   #choosenim stable
-# Set PATH may be needed for yarn and pip.
+# Set PATH may be needed for yarn , pip and nim.
 
-#  paru -S luajit-openresty
+paru -S luajit-openresty luarocks
 
 # install neovim
 paru -S neovim-nightly-bin
@@ -274,9 +274,9 @@ omf update
 paru -S input-wacom-dkms xf86-input-wacom libwacom
 
 ## Install other tools
-paru -S xournalpp flameshot baidunetdisk-electron evince
+paru -S xournalpp flameshot baidunetdisk-electron zathura zathura-pdf-mupdf
 #paru -S jdk8-openjdk
 #archlinux-java set java-8-opennjdk
 #paru -S texlive-core
 
-paru -S ruby ruby-fusuma wtype
+#paru -S ruby ruby-fusuma wtype
