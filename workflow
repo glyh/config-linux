@@ -177,12 +177,12 @@ sudo usermod -s /bin/fish (username)
 # proxychains to install qv2ray maually.
 # see brave man pages to set ssytem proxy for brave.
 # for example: brave --proxy-server="socks://127.0.0.1:7890"
-# "brave --force-device-scale-factor=1.8 " to scale
+# "brave --enable-features=UseOzonePlatform --ozone-platform=wayland" to scale
 # install proxyomega for brave on chrome store.
 # done.
 
 ## Let paru host qv2ray
-  paru -S qv2ray-dev-git qv2ray-plugin-ssr-dev-git
+  paru -S qv2ray-dev-git #qv2ray-plugin-ssr-dev-git
 
 ## Install IME
   paru -S fcitx fcitx-sogoupinyin
@@ -219,6 +219,8 @@ sudo usermod -s /bin/fish (username)
   #paru -S gdb clang
 
   paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
+
+  paru -S jdk-openjdk jdtls
   #cd config-linux
   #bash ./scripts/clojure-lsp.sh
 
@@ -280,3 +282,4 @@ paru -S xournalpp flameshot baidunetdisk-electron zathura zathura-pdf-mupdf
 #paru -S texlive-core
 
 #paru -S ruby ruby-fusuma wtype
+systemctl enable systemd-homed
