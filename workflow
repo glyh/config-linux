@@ -220,60 +220,40 @@ sudo usermod -s /bin/fish (username)
 
   paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
 
-  paru -S jdk-openjdk jdtls
-  #cd config-linux
-  #bash ./scripts/clojure-lsp.sh
-
-  #paru -S nodejs npm
-  #sudo npm install -g tldr
+  paru -S jdk-openjdk jdtls maven
 
   paru -S python python-pip
   pip install --user --upgrade pynvim
 
   paru -S nodejs yarn
   yarn config set prefix ~/.yarn
-  yarn global add neovim tldr
+  yarn global add tldr
 
-  #paru -S ghc-static haskell-language-server stack
-
-  #paru -S choosenim
-  #choosenim stable
-# Set PATH may be needed for yarn , pip and nim.
-
-paru -S luajit-openresty luarocks
+# Set PATH may be needed for yarn, pip, etc.
 
 # install neovim
-paru -S neovim-nightly-bin
-#install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+paru -S neovim
 
 ## Install themes
   git clone --recursive https://hub.fastgit.org/lcpz/awesome-copycats.git
   mv -bv awesome-copycats/* ~/.config/awesome && rm -rf awesome-copycats
 
 ## Recover dot files
-chezmoi init https://github.com/glyh/dotfiles.git
-chezmoi apply
-chezmoi update
+  chezmoi init https://github.com/glyh/dotfiles.git
+  chezmoi apply
+  chezmoi update
 
 # Install through proxy(They are huge):
-proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono ttf-ms-fonts
-
-## Install SpaceVim
-
-# markdown format for nvim.
-# yarn global add  remark, remark-cli, remark-stringify, remark-frontmatter, wcwidth
-# pip install pylint yapf
+  proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono ttf-ms-fonts
 
 ## Recover dot files again to overwrite.
-chezmoi update
+  chezmoi update
 
 ## Update OMF
-omf update
+  omf update
 
 ## Install wacom support and handwriting softwares
-paru -S input-wacom-dkms xf86-input-wacom libwacom
+  paru -S input-wacom-dkms xf86-input-wacom libwacom
 
 ## Install other tools
 paru -S xournalpp flameshot baidunetdisk-electron zathura zathura-pdf-mupdf
