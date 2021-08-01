@@ -99,7 +99,7 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 ## Install Window Manager and Display Manager, Screen Locker
   pacman -S sddm #awesome-luajit
   systemctl enable sddm
-  pacman -S sway foot
+  pacman -S sway foot autotiling
 
 ## Install alacritty instead of xterm
   pacman -S alacritty fish
@@ -232,7 +232,7 @@ sudo usermod -s /bin/fish (username)
 # Set PATH may be needed for yarn, pip, etc.
 
 # install neovim
-paru -S neovim
+paru -S neovim-nightly-bin
 
 ## Install themes
   git clone --recursive https://hub.fastgit.org/lcpz/awesome-copycats.git
