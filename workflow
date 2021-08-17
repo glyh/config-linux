@@ -1,16 +1,16 @@
 ## Kill buzzer so you won't hear noise anymore
-rmmod pcspkr # kill that fucking buzzer
+  rmmod pcspkr # kill that fucking buzzer
 
 ## Set Keyboard layouts
-ls /usr/share/kbd/keymaps/**/*.map.gz | less # Find all keyboard layout
-loadkeys de-latin1 # An example for load keyboard layouts
+  ls /usr/share/kbd/keymaps/**/*.map.gz | less # Find all keyboard layout
+  loadkeys de-latin1 # An example for load keyboard layouts
 
 ## Boot mode
-ls /sys/firmware/efi/efivars # Verrify UEFI boot mode
+  ls /sys/firmware/efi/efivars # Verrify UEFI boot mode
 
 ## Networking
   rfkill list
-rfkill unblock (blocked-internet)
+  rfkill unblock (blocked-internet)
 
 ## For wifi.
   iwctl
@@ -228,6 +228,7 @@ sudo usermod -s /bin/fish (username)
   paru -S nodejs yarn
   yarn config set prefix ~/.yarn
   yarn global add tldr
+  yarn global add tree-sitter-cli
 
 # Set PATH may be needed for yarn, pip, etc.
 
@@ -244,7 +245,9 @@ paru -S neovim-nightly-bin
   chezmoi update
 
 # Install through proxy(They are huge):
-  proxychains paru -S brave adobe-source-han-sans-otc-fonts nerdfont-fira-mono ttf-ms-fonts
+  proxychains paru -S  adobe-source-han-sans-otc-fonts nerd-fonts-fira-code ttf-ms-fonts
+  proxychains paru -S brave nyxt
+
 
 ## Recover dot files again to overwrite.
   chezmoi update
@@ -256,10 +259,12 @@ paru -S neovim-nightly-bin
   paru -S input-wacom-dkms xf86-input-wacom libwacom
 
 ## Install other tools
-paru -S xournalpp flameshot baidunetdisk-electron zathura zathura-pdf-mupdf
+paru -S xournalpp baidunetdisk-electron zathura zathura-pdf-mupdf grimshot
+paru -S zoxide
+#flameshot (for x)
 #paru -S jdk8-openjdk
 #archlinux-java set java-8-opennjdk
 #paru -S texlive-core
 
 #paru -S ruby ruby-fusuma wtype
-systemctl enable systemd-homed
+#systemctl enable systemd-homed
