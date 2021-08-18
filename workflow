@@ -204,7 +204,7 @@ sudo usermod -s /bin/fish (username)
   paru -S betterlockscreen-git unclutter rofi-wayland-git
 
 ## Install other tools
-  paru -S redshift chezmoi aria2 debtap hugo cbatticon light
+  paru -S redshift-wayland-git chezmoi aria2 debtap hugo cbatticon light
 
 ## Install ariaNg, aria.conf for aria
 # from https://github.com/mayswind/AriaNg/releases (all in one)
@@ -260,7 +260,9 @@ paru -S neovim-nightly-bin
 
 ## Install other tools
 paru -S xournalpp baidunetdisk-electron zathura zathura-pdf-mupdf grimshot
-paru -S zoxide
+paru -S zoxide trash-cli
+echo "@daily" (which trash-empty) "30" | crontab -
+
 #flameshot (for x)
 #paru -S jdk8-openjdk
 #archlinux-java set java-8-opennjdk
