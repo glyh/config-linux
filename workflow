@@ -259,7 +259,7 @@ paru -S neovim-nightly-bin
   paru -S input-wacom-dkms xf86-input-wacom libwacom
 
 ## Install other tools
-paru -S xournalpp baidunetdisk-electron zathura zathura-pdf-mupdf grimshot
+paru -S xournalpp baidunetdisk-electron zathura zathura-pdf-mupdf zathura-djvu grimshot
 paru -S zoxide trash-cli
 echo "@daily" (which trash-empty) "30" | crontab -
 
