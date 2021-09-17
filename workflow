@@ -97,9 +97,24 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 # see: `man nmcli` and `man nmcli-examples`
 
 ## Install Window Manager and Display Manager, Screen Locker
-  pacman -S sddm #awesome-luajit
+  pacman -S sddm
   systemctl enable sddm
+
+  # awesome wm on X11
+  pacman -S awesome-luajit
+
+  # sway wm on Wayland
   pacman -S sway foot autotiling
+
+  # river wm on wayland
+  #pacman -S river
+
+  # qtile wm on wayland
+  # paru -S python python-pip
+  # pip install xkbcommon pywayland
+  # pip install pywlroots
+  # pip install qtile
+  # # to start it, use qtile start -b wayland
 
 ## Install alacritty instead of xterm
   pacman -S alacritty fish
@@ -151,7 +166,7 @@ passwd (username)
 ## System tools:
 
 ## Install shell, manuals and ssh
-  paru -S fish man-pages man-db openssh
+  paru -S fish man-pages man-db openssh nvimpager-git
 # omf framework
   curl -L https://raw.fastgit.org/oh-my-fish/oh-my-fish/master/bin/install >> setup-omf.fish
   export OMF_REPO_URI=https://hub.fastgit.org/oh-my-fish/oh-my-fish
@@ -221,6 +236,14 @@ sudo usermod -s /bin/fish (username)
   paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
 
   paru -S jdk-openjdk jdtls maven
+
+  # Zig
+  paru -S zls
+
+  # Nim
+  paru -S nimble choosenim
+  choosenim stable
+  nimble install nimlsp
 
   paru -S python python-pip
   pip install --user --upgrade pynvim
