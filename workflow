@@ -97,14 +97,14 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 # see: `man nmcli` and `man nmcli-examples`
 
 ## Install Window Manager and Display Manager, Screen Locker
-  pacman -S sddm
-  systemctl enable sddm
+  pacman -S ly
+  systemctl enable ly
 
   # awesome wm on X11
-  pacman -S awesome-luajit
+  # pacman -S awesome-luajit
 
   # sway wm on Wayland
-  pacman -S sway foot autotiling
+  pacman -S sway autotiling swaynagmode swaylock
 
   # river wm on wayland
   #pacman -S river
@@ -179,7 +179,7 @@ sudo usermod -s /bin/fish (username)
   paru -S udiskie ranger pcmanfm atool unzip ntfs-3g
 
 ## Install backup softwares
-  paru -S timeshift
+  paru -S snapper # timeshift
 
 ## Install proxy softwares
   paru -S v2ray proxychains
@@ -246,7 +246,7 @@ sudo usermod -s /bin/fish (username)
   nimble install nimlsp
 
   paru -S python python-pip
-  pip install --user --upgrade pynvim
+  pip install --user --upgrade pynvim neovim-remote
 
   paru -S nodejs yarn
   yarn config set prefix ~/.yarn
@@ -283,7 +283,7 @@ paru -S neovim-nightly-bin
 
 ## Install other tools
 paru -S xournalpp baidunetdisk-electron zathura zathura-pdf-mupdf zathura-djvu grimshot
-paru -S zoxide trash-cli
+paru -S trash-cli fcron
 echo "@daily" (which trash-empty) "30" | crontab -
 
 #flameshot (for x)
