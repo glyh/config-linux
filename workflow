@@ -97,14 +97,14 @@ pacstrap /mnt grub efibootmgr (amd-ucode)
 # see: `man nmcli` and `man nmcli-examples`
 
 ## Install Window Manager and Display Manager, Screen Locker
-  pacman -S ly
-  systemctl enable ly
+  #pacman -S ly
+  #systemctl enable ly
 
   # awesome wm on X11
   # pacman -S awesome-luajit
 
   # sway wm on Wayland
-  pacman -S sway autotiling swaynagmode swaylock
+  pacman -S sway autotiling swaynagmode swaylock mako swayidle
 
   # river wm on wayland
   #pacman -S river
@@ -166,7 +166,7 @@ passwd (username)
 ## System tools:
 
 ## Install shell, manuals and ssh
-  paru -S fish man-pages man-db openssh nvimpager-git
+  paru -S fish man-pages man-db openssh page-git
 # omf framework
   curl -L https://raw.fastgit.org/oh-my-fish/oh-my-fish/master/bin/install >> setup-omf.fish
   export OMF_REPO_URI=https://hub.fastgit.org/oh-my-fish/oh-my-fish
@@ -187,9 +187,11 @@ sudo usermod -s /bin/fish (username)
 # while v2ray asset dir is : v2ray/usr/share/v2ray
 # how to replace proxy:
 
+paru -S firefox-beta-bin firefox-tridactyl-native-bin
 # install v2ray
 # install qv2ray(from hub.fastgit.org)
 # proxychains to install qv2ray maually.
+# Run firefox with proxychains under v2ray
 # see brave man pages to set ssytem proxy for brave.
 # for example: brave --proxy-server="socks://127.0.0.1:7890"
 # "brave --enable-features=UseOzonePlatform --ozone-platform=wayland" to scale
@@ -197,7 +199,8 @@ sudo usermod -s /bin/fish (username)
 # done.
 
 ## Let paru host qv2ray
-  paru -S qv2ray-dev-git #qv2ray-plugin-ssr-dev-git
+#  paru -S qv2ray-dev-git #qv2ray-plugin-ssr-dev-git
+paru -S v2rayA
 
 ## Install IME
   paru -S fcitx fcitx-sogoupinyin
@@ -219,7 +222,7 @@ sudo usermod -s /bin/fish (username)
   paru -S betterlockscreen-git unclutter rofi-wayland-git
 
 ## Install other tools
-  paru -S redshift-wayland-git chezmoi aria2 debtap hugo cbatticon light
+  paru -S gammastep chezmoi aria2 light
 
 ## Install ariaNg, aria.conf for aria
 # from https://github.com/mayswind/AriaNg/releases (all in one)
@@ -233,17 +236,17 @@ sudo usermod -s /bin/fish (username)
 
   #paru -S gdb clang
 
-  paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
+  #paru -S clojure boot clj-kondo clojure-lsp-bin babashka-bin
 
-  paru -S jdk-openjdk jdtls maven
+  paru -S jdk-openjdk #jdtls maven
 
   # Zig
-  paru -S zls
+  #paru -S zls
 
   # Nim
-  paru -S nimble choosenim
-  choosenim stable
-  nimble install nimlsp
+  # paru -S nimble choosenim
+  # choosenim stable
+  # nimble install nimlsp
 
   paru -S python python-pip
   pip install --user --upgrade pynvim neovim-remote
@@ -256,7 +259,10 @@ sudo usermod -s /bin/fish (username)
 # Set PATH may be needed for yarn, pip, etc.
 
 # install neovim
-paru -S neovim-nightly-bin
+paru -S neovim
+
+# productivity tools
+paru -S fzf
 
 ## Install themes
   git clone --recursive https://hub.fastgit.org/lcpz/awesome-copycats.git
