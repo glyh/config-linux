@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Install the system
+pacman --noconfirm -S python python-archinstall
+python generate.py
+python -m archinstall --config conf.json
+
+# Install packages
+#git clone http://aur.archlinux.org/paru.git
